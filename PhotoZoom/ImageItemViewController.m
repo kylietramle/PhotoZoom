@@ -10,40 +10,72 @@
 #import "ImageItemStore.h"
 #import "ImageItem.h"
 
+@interface ImageItemViewController ()
+@property (nonatomic, strong) NSURLSession *session;
+@end
+
+
 @implementation ImageItemViewController
-- (instancetype)init
+
+// create NSURLSession object
+- (instancetype)initWithStyle:(UITableViewStyle)style
 {
-    // Call superclass's designatged initializer
-    self = [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:style];
     if (self) {
-        for (int i = 0; i < 5; i++) {
-            [[ImageItemStore sharedImage] createImage];
-        }
+        self. navigationItem.title = @"Images";
+        
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+        
+        [self fetchFeed];
     }
+    
     return self;
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
+// create NSURLRequest and asks for list of images
+- (void)fetchFeed
 {
-    return [self init];
+    NSString *requestString = @"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    NSURL *url = [NSURL URLWithString:requestString];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"%@", json);
+    }];
+    
+    [dataTask resume];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[ImageItemStore sharedImage] allImageItems] count];
+//    return [[[ImageItemStore sharedImage] allImageItems] count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Create an instance of UITableViewCell
-    UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+//    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
-    NSArray *images = [[ImageItemStore sharedImage] allImageItems];
-    ImageItem *image = images[indexPath.row];
+//    NSArray *images = [[ImageItemStore sharedImage] allImageItems];
+//    ImageItem *image = images[indexPath.row];
+//    
+//    cell.textLabel.text = [image imageName];
+//    
+//    return cell;
     
-    cell.textLabel.text = [image imageName];
+    return nil;
+}
+
+// tell table view which kind of cell should instantiate if there are no cells to reuse
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
-    return cell;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
 }
 
 @end

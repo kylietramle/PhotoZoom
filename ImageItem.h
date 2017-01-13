@@ -10,10 +10,10 @@
 
 @interface ImageItem : NSObject
 
-@property (nonatomic) NSString *imageName;
-@property (nonatomic) NSString *imageUrl;
-
-+ (instancetype)randomImage; // let's see where I need this
-- (instancetype)initWithImageName:(NSString *)name imageUrL:(NSString *)url;
-- (instancetype)initWithImageName:(NSString *)name;
+//@property (nonatomic) NSString *imageName;
+//@property (nonatomic) NSString *imageUrl;
+//
+//+ (instancetype)randomImage; // let's see where I need this
+//- (instancetype)initWithImageName:(NSString *)name imageUrL:(NSString *)url;
+//- (instancetype)initWithImageName:(NSString *)name;
 @end

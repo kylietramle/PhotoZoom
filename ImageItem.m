@@ -10,30 +10,30 @@
 
 @implementation ImageItem
 
-- (instancetype)initWithImageName:(NSString *)name imageUrL:(NSString *)url {
-    // call the superclass' designated initializer
-    self = [super init];
-    
-    //did the superclass designated initializaer succeed?
-    if (self) {
-        _imageName = name;
-        _imageUrl = url;
-    }
-    
-    return self;
-}
-
-// 2nd initializer: call desingated initializer and pass default values
-
-- (instancetype)initWithImageName:(NSString *)name
-{
-    return [self initWithImageName:name imageUrL:@""];
-}
-
-//3rd initializer: override init method so designated initializer will work
-- (instancetype) init
-{
-    return [self initWithImageName:@"Image"];
-}
+//- (instancetype)initWithImageName:(NSString *)name imageUrL:(NSString *)url {
+//    // call the superclass' designated initializer
+//    self = [super init];
+//    
+//    //did the superclass designated initializaer succeed?
+//    if (self) {
+//        _imageName = name;
+//        _imageUrl = url;
+//    }
+//    
+//    return self;
+//}
+//
+//// 2nd initializer: call desingated initializer and pass default values
+//
+//- (instancetype)initWithImageName:(NSString *)name
+//{
+//    return [self initWithImageName:name imageUrL:@""];
+//}
+//
+////3rd initializer: override init method so designated initializer will work
+//- (instancetype) init
+//{
+//    return [self initWithImageName:@"Image"];
+//}
 
 @end

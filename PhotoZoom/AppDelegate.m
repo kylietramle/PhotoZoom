@@ -19,11 +19,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //BNRItemsViewController instance
-    ImageItemViewController *imageItemViewController = [[ImageItemViewController alloc] init];
+    //Image Table View Controller instance
+    ImageItemViewController *imageItemViewController = [[ImageItemViewController alloc] initWithStyle:UITableViewStylePlain];
     
-    // Place BNRItemsViewcontroller's table view in window hierarchy
-    self.window.rootViewController = imageItemViewController;
+    // Navigation bar
+    UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:imageItemViewController];
+    
+    self.window.rootViewController = masterNav;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

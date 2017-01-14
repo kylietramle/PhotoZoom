@@ -7,11 +7,11 @@
 //
 
 #import "ImageItemViewController.h"
-#import "ImageItemStore.h"
-#import "ImageItem.h"
+#import "ImageCell.h"
 
 @interface ImageItemViewController ()
 @property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, copy) NSArray *movies;
 @end
 
 
@@ -22,7 +22,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self. navigationItem.title = @"Images";
+        self. navigationItem.title = @"Photos";
         
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
@@ -41,18 +41,35 @@
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
-        NSLog(@"%@", json);
+        self.movies = jsonObject[@"results"];
+        NSLog(@"%@", self.movies);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
     }];
     
     [dataTask resume];
 }
 
+// tell table view which kind of cell should instantiate if there are no cells to reuse
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"ImageCell" bundle:nil];
+    
+    // register nib that contains the cell
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"ImageCell"];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //    return [[[ImageItemStore sharedImage] allImageItems] count];
-    return 0;
+    return [self.movies count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,16 +83,13 @@
 //    cell.textLabel.text = [image imageName];
 //    
 //    return cell;
+    ImageCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell" forIndexPath:indexPath];
     
-    return nil;
-}
-
-// tell table view which kind of cell should instantiate if there are no cells to reuse
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+    NSDictionary *movie = self.movies[indexPath.row];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    // configure cell with Image Cell
+    [cell.buttonLabel setTitle: @"click me" forState:UIControlStateNormal];
+    
+    return cell;
 }
-
 @end

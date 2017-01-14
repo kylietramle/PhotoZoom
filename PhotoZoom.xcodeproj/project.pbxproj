@@ -13,8 +13,9 @@
 		61220EF51E25AEA500AD37CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61220EF41E25AEA500AD37CA /* Assets.xcassets */; };
 		61220EF81E25AEA500AD37CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61220EF61E25AEA500AD37CA /* LaunchScreen.storyboard */; };
 		61220F0A1E283BC900AD37CA /* ImageItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F091E283BC900AD37CA /* ImageItemViewController.m */; };
-		61220F0D1E283CF200AD37CA /* ImageItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F0C1E283CF200AD37CA /* ImageItemStore.m */; };
-		61220F101E283E7D00AD37CA /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F0F1E283E7D00AD37CA /* ImageItem.m */; };
+		61220F1A1E298D3200AD37CA /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F181E298D3200AD37CA /* ImageCell.m */; };
+		61220F1B1E298D3200AD37CA /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61220F191E298D3200AD37CA /* ImageCell.xib */; };
+		61220F1E1E299DA300AD37CA /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F1D1E299DA300AD37CA /* ImageItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		61220EF91E25AEA500AD37CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61220F081E283BC900AD37CA /* ImageItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItemViewController.h; sourceTree = "<group>"; };
 		61220F091E283BC900AD37CA /* ImageItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItemViewController.m; sourceTree = "<group>"; };
-		61220F0B1E283CF200AD37CA /* ImageItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItemStore.h; sourceTree = "<group>"; };
-		61220F0C1E283CF200AD37CA /* ImageItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItemStore.m; sourceTree = "<group>"; };
-		61220F0E1E283E7D00AD37CA /* ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageItem.h; path = ../ImageItem.h; sourceTree = "<group>"; };
-		61220F0F1E283E7D00AD37CA /* ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageItem.m; path = ../ImageItem.m; sourceTree = "<group>"; };
+		61220F171E298D3200AD37CA /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		61220F181E298D3200AD37CA /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		61220F191E298D3200AD37CA /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		61220F1C1E299DA300AD37CA /* ImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItem.h; sourceTree = "<group>"; };
+		61220F1D1E299DA300AD37CA /* ImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +68,6 @@
 			children = (
 				61220EEB1E25AEA500AD37CA /* AppDelegate.h */,
 				61220EEC1E25AEA500AD37CA /* AppDelegate.m */,
-				61220F0E1E283E7D00AD37CA /* ImageItem.h */,
-				61220F0F1E283E7D00AD37CA /* ImageItem.m */,
 				61220F081E283BC900AD37CA /* ImageItemViewController.h */,
 				61220F091E283BC900AD37CA /* ImageItemViewController.m */,
 				61220EF11E25AEA500AD37CA /* Main.storyboard */,
@@ -75,8 +75,11 @@
 				61220EF61E25AEA500AD37CA /* LaunchScreen.storyboard */,
 				61220EF91E25AEA500AD37CA /* Info.plist */,
 				61220EE81E25AEA500AD37CA /* Supporting Files */,
-				61220F0B1E283CF200AD37CA /* ImageItemStore.h */,
-				61220F0C1E283CF200AD37CA /* ImageItemStore.m */,
+				61220F171E298D3200AD37CA /* ImageCell.h */,
+				61220F181E298D3200AD37CA /* ImageCell.m */,
+				61220F191E298D3200AD37CA /* ImageCell.xib */,
+				61220F1C1E299DA300AD37CA /* ImageItem.h */,
+				61220F1D1E299DA300AD37CA /* ImageItem.m */,
 			);
 			path = PhotoZoom;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61220EF81E25AEA500AD37CA /* LaunchScreen.storyboard in Resources */,
+				61220F1B1E298D3200AD37CA /* ImageCell.xib in Resources */,
 				61220EF51E25AEA500AD37CA /* Assets.xcassets in Resources */,
 				61220EF31E25AEA500AD37CA /* Main.storyboard in Resources */,
 			);
@@ -162,9 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				61220EED1E25AEA500AD37CA /* AppDelegate.m in Sources */,
+				61220F1E1E299DA300AD37CA /* ImageItem.m in Sources */,
+				61220F1A1E298D3200AD37CA /* ImageCell.m in Sources */,
 				61220EEA1E25AEA500AD37CA /* main.m in Sources */,
-				61220F101E283E7D00AD37CA /* ImageItem.m in Sources */,
-				61220F0D1E283CF200AD37CA /* ImageItemStore.m in Sources */,
 				61220F0A1E283BC900AD37CA /* ImageItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

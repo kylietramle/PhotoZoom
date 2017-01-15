@@ -89,7 +89,7 @@
     
     // configure cell with Image Cell
     [cell.buttonLabel setTitle: @"click me" forState:UIControlStateNormal];
-    
+    cell.imageView.image = [UIImage imageNamed:@"sample.jpg"];
     return cell;
 }
 @end

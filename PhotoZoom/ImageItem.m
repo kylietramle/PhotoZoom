@@ -22,4 +22,18 @@ NSString *baseImageUrl  = @"http://image.tmdb.org/t/p/w500";
     
     return self;
 }
+
++ (NSArray *)convertImage:(NSArray*)jsonArray
+{
+    NSMutableArray *imageItemArray = [[NSMutableArray alloc] init];
+    NSDictionary *jsonDictionary;
+    for (jsonDictionary in jsonArray) {
+        ImageItem *imageItem = [[ImageItem alloc] init];
+        
+        NSLog(@"Movie added with name: %d", *imageItem.movieID);
+        [imageItemArray addObject: imageItem];
+    }
+    
+    return imageItemArray;
+}
 @end

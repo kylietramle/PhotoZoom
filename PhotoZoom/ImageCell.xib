@@ -18,29 +18,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="390" height="154"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xiy-ac-YnV">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="154"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="240" id="KXS-NX-D8I"/>
-                        </constraints>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnf-ik-i0d">
-                        <rect key="frame" x="294" y="62" width="46" height="30"/>
+                        <rect key="frame" x="296" y="62" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JKc-IA-RmM">
+                        <rect key="frame" x="0.0" y="0.0" width="238" height="154"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="154" id="3Ya-KQ-Iin"/>
+                            <constraint firstAttribute="width" constant="238" id="wzg-u4-qan"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Wnf-ik-i0d" firstAttribute="centerY" secondItem="IaQ-t7-ZNK" secondAttribute="centerY" id="6dD-TE-Ufv"/>
-                    <constraint firstItem="Xiy-ac-YnV" firstAttribute="centerY" secondItem="IaQ-t7-ZNK" secondAttribute="centerY" id="8cs-9V-FzU"/>
-                    <constraint firstItem="Xiy-ac-YnV" firstAttribute="centerY" secondItem="Wnf-ik-i0d" secondAttribute="centerY" id="Hif-EG-pJU"/>
-                    <constraint firstItem="Xiy-ac-YnV" firstAttribute="leading" secondItem="IaQ-t7-ZNK" secondAttribute="leading" id="Kb8-pG-01k"/>
-                    <constraint firstItem="Xiy-ac-YnV" firstAttribute="top" secondItem="IaQ-t7-ZNK" secondAttribute="top" id="Xbb-dw-dKJ"/>
-                    <constraint firstItem="Wnf-ik-i0d" firstAttribute="leading" secondItem="Xiy-ac-YnV" secondAttribute="trailing" constant="54" id="vvr-Dt-l9N"/>
+                    <constraint firstItem="Wnf-ik-i0d" firstAttribute="leading" secondItem="JKc-IA-RmM" secondAttribute="trailing" constant="58" id="BT8-W1-s7B"/>
+                    <constraint firstItem="JKc-IA-RmM" firstAttribute="centerY" secondItem="Wnf-ik-i0d" secondAttribute="centerY" id="kLA-IG-nd9"/>
+                    <constraint firstItem="JKc-IA-RmM" firstAttribute="leading" secondItem="IaQ-t7-ZNK" secondAttribute="leading" id="rAY-vL-PaJ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="buttonLabel" destination="Wnf-ik-i0d" id="FAR-c1-0WW"/>
-                <outlet property="thumbnailView" destination="Xiy-ac-YnV" id="els-RW-xv7"/>
             </connections>
             <point key="canvasLocation" x="-27" y="86"/>
         </tableViewCell>

@@ -14,4 +14,5 @@
 @property NSMutableString *imageUrl;
 
 - (instancetype)initWithMovieID: (int *)id imageUrl: (NSString *)url;
++ (instancetype)convertImage;
 @end

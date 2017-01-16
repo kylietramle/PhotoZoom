@@ -8,6 +8,10 @@
 
 #import "ImageCollectionViewController.h"
 
+@interface ImageCollectionViewController ()
+@property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, copy) NSArray *movies;
+@end
 
 @implementation ImageCollectionViewController
 
@@ -28,13 +32,12 @@
     
     [self.view addSubview: collectionView];
 
-    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
     
-//    cell.backgroundColor=[UIColor greenColor];
+    
     return cell;
 }
 
@@ -57,10 +60,47 @@
     NSLog(@"indexpath %@,", indexPath);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// create NSURLSession object
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self. navigationItem.title = @"Photos";
+
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+
+        [self fetchFeed];
+    }
+
+    return self;
 }
+
+// create NSURLRequest and asks for list of images
+- (void)fetchFeed
+{
+    NSString *requestString = @"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    NSURL *url = [NSURL URLWithString:requestString];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        self.movies = jsonObject[@"results"];
+        
+        self.image = [[Image alloc]init];
+        self.image.movieID = movies.
+        
+        NSLog(@"%@", self.movies);
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.view reloadData];
+        });
+    }];
+
+    [dataTask resume];
+}
+
+
 
 
 

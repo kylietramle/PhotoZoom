@@ -19,15 +19,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
  
-//    //Image Table View Controller instance
+    //Image Table View Controller instance
     ImageCollectionViewController *imageCollectionViewController = [[ImageCollectionViewController alloc] init];
-//
-//    // Navigation bar
-////    UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:imageCollectionViewController];
-//    
-    self.window.rootViewController = imageCollectionViewController;
-//    
-//    self.window.backgroundColor = [UIColor whiteColor];
+
+    // Navigation bar
+    UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:imageCollectionViewController];
+    
+    self.window.rootViewController = masterNav;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

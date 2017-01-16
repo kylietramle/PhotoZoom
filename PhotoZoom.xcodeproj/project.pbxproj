@@ -17,6 +17,7 @@
 		61220F1B1E298D3200AD37CA /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61220F191E298D3200AD37CA /* ImageCell.xib */; };
 		61220F241E2C1EFF00AD37CA /* ImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */; };
 		61220F251E2C1EFF00AD37CA /* ImageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61220F231E2C1EFF00AD37CA /* ImageCollectionViewController.xib */; };
+		61220F281E2C531A00AD37CA /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F271E2C531A00AD37CA /* Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		61220F211E2C1EFF00AD37CA /* ImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewController.h; sourceTree = "<group>"; };
 		61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewController.m; sourceTree = "<group>"; };
 		61220F231E2C1EFF00AD37CA /* ImageCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewController.xib; sourceTree = "<group>"; };
+		61220F261E2C531A00AD37CA /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		61220F271E2C531A00AD37CA /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				61220F171E298D3200AD37CA /* ImageCell.h */,
 				61220F181E298D3200AD37CA /* ImageCell.m */,
 				61220F191E298D3200AD37CA /* ImageCell.xib */,
+				61220F261E2C531A00AD37CA /* Image.h */,
+				61220F271E2C531A00AD37CA /* Image.m */,
 			);
 			path = PhotoZoom;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				61220EED1E25AEA500AD37CA /* AppDelegate.m in Sources */,
 				61220F1A1E298D3200AD37CA /* ImageCell.m in Sources */,
 				61220EEA1E25AEA500AD37CA /* main.m in Sources */,
+				61220F281E2C531A00AD37CA /* Image.m in Sources */,
 				61220F241E2C1EFF00AD37CA /* ImageCollectionViewController.m in Sources */,
 				61220F0A1E283BC900AD37CA /* ImageItemViewController.m in Sources */,
 			);

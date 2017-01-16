@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Image.h"
 
 @interface ImageCollectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@property (strong, nonatomic) Image *image;
+
 @end

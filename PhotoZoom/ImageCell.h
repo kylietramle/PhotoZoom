@@ -9,4 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
+@property (weak, nonatomic) IBOutlet UIButton *viewButton;
+
 @end

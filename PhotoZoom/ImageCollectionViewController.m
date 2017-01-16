@@ -21,20 +21,20 @@
     collectionView.delegate = self;
     collectionView.dataSource = self;
     
-    [collectionView registerClass: [UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    UINib *cellNib = [UINib nibWithNibName:@"ImageCell" bundle:nil];
+    [collectionView registerNib:cellNib forCellWithReuseIdentifier:@"customCell"];
+
+//    [collectionView registerClass: [UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     
     [self.view addSubview: collectionView];
-
-//    UINib *cellNib = [UINib nibWithNibName:@"NibCell" bundle:nil];
-//    [_collectionView registerNib:cellNib forCellWithReuseIdentifier:@"cvCell"];
 
     
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
     
-    cell.backgroundColor=[UIColor greenColor];
+//    cell.backgroundColor=[UIColor greenColor];
     return cell;
 }
 
@@ -44,12 +44,17 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.view.frame.size.width/2-20, 200);
+    return CGSizeMake(self.view.frame.size.width-20, 200);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(10, 10, 10, 5);
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"indexpath %@,", indexPath);
 }
 
 - (void)didReceiveMemoryWarning {

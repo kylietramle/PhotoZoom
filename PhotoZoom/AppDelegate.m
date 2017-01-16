@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ImageItemViewController.h"
+#import "ImageCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,16 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    //Image Table View Controller instance
-    ImageItemViewController *imageItemViewController = [[ImageItemViewController alloc] initWithStyle:UITableViewStylePlain];
-    
-    // Navigation bar
-    UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:imageItemViewController];
-    
-    self.window.rootViewController = masterNav;
-    
-    self.window.backgroundColor = [UIColor whiteColor];
+ 
+//    //Image Table View Controller instance
+    ImageCollectionViewController *imageCollectionViewController = [[ImageCollectionViewController alloc] init];
+//
+//    // Navigation bar
+////    UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:imageCollectionViewController];
+//    
+    self.window.rootViewController = imageCollectionViewController;
+//    
+//    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

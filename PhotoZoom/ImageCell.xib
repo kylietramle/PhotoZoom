@@ -11,36 +11,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="154" id="NJ3-ti-TWI" customClass="ImageCell">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="154"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NJ3-ti-TWI" id="IaQ-t7-ZNK">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="154"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cvCell" id="ogz-yw-NrV" customClass="CustomClassCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnf-ik-i0d">
-                        <rect key="frame" x="296" y="62" width="46" height="30"/>
-                        <state key="normal" title="Button"/>
-                    </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JKc-IA-RmM">
-                        <rect key="frame" x="0.0" y="0.0" width="238" height="154"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="154" id="3Ya-KQ-Iin"/>
-                            <constraint firstAttribute="width" constant="238" id="wzg-u4-qan"/>
-                        </constraints>
-                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPp-0Z-0hZ">
+                        <rect key="frame" x="79" y="90" width="42" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="Wnf-ik-i0d" firstAttribute="centerY" secondItem="IaQ-t7-ZNK" secondAttribute="centerY" id="6dD-TE-Ufv"/>
-                    <constraint firstItem="Wnf-ik-i0d" firstAttribute="leading" secondItem="JKc-IA-RmM" secondAttribute="trailing" constant="58" id="BT8-W1-s7B"/>
-                    <constraint firstItem="JKc-IA-RmM" firstAttribute="centerY" secondItem="Wnf-ik-i0d" secondAttribute="centerY" id="kLA-IG-nd9"/>
-                    <constraint firstItem="JKc-IA-RmM" firstAttribute="leading" secondItem="IaQ-t7-ZNK" secondAttribute="leading" id="rAY-vL-PaJ"/>
-                </constraints>
-            </tableViewCellContentView>
-            <connections>
-                <outlet property="buttonLabel" destination="Wnf-ik-i0d" id="FAR-c1-0WW"/>
-            </connections>
-            <point key="canvasLocation" x="-27" y="86"/>
-        </tableViewCell>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+            <size key="customSize" width="101" height="100"/>
+            <point key="canvasLocation" x="-106.5" y="114"/>
+        </collectionViewCell>
     </objects>
 </document>

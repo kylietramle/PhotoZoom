@@ -14,4 +14,5 @@
 
 -(instancetype)initWithJSON: (NSDictionary *)jsonDictionary;
 +(NSMutableArray *)convertJsonToImageObject:(NSArray *)jsonArray;
+
 @end

@@ -11,15 +11,9 @@
 
 @implementation Image
 
--(instancetype) init {
-    self = [super init];
-    
-    return self;
-}
-
 - (instancetype) initWithJSON:(NSDictionary *)jsonDictionary
 {
-    self.movieID = jsonDictionary[@"id"];
+    self.movieID = [NSString stringWithFormat:@"%@", jsonDictionary[@"id"]];
     
     NSString *baseUrl = @"http://image.tmdb.org/t/p/w500";
     NSString *backDropUrl = jsonDictionary[@"backdrop_path"];

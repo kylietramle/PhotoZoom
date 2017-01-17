@@ -8,10 +8,11 @@
 
 #import "ImageCollectionViewController.h"
 #import "Image.h"
+#import "ImageCell.h"
 
 @interface ImageCollectionViewController ()
 @property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, copy) NSMutableArray *movies;
+@property (nonatomic, copy) NSMutableArray *images;
 @end
 
 @implementation ImageCollectionViewController
@@ -25,25 +26,36 @@
     
     collectionView.delegate = self;
     collectionView.dataSource = self;
-    
-    UINib *cellNib = [UINib nibWithNibName:@"ImageCell" bundle:nil];
-    [collectionView registerNib:cellNib forCellWithReuseIdentifier:@"customCell"];
 
-//    [collectionView registerClass: [UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"customCell"];
     
     [self.view addSubview: collectionView];
 
 }
 
+-(void)dataRetrieved {
+    NSLog(@"Image movieID is: %@", self.image.movieID);
+    NSLog(@"Image url is: %@", self.image.imageUrl);
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
     
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+    NSString *cellData = [self.images [indexPath.row] movieID];
+    NSLog(@"%@", [cellData class]);
     
+    [cell.viewButton setTitle:cellData forState:UIControlStateNormal];
+
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return [self.images count];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -54,11 +66,6 @@
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(10, 10, 10, 5);
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"indexpath %@,", indexPath);
 }
 
 // create NSURLSession object
@@ -86,11 +93,7 @@
 
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        self.movies = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
-        
-//        NSLog(@"%@", self.movies);
-//        NSString *className = [[_movies class] description];
-//        NSLog(@"%@", className);
+        self.images = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];

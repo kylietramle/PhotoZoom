@@ -7,10 +7,11 @@
 //
 
 #import "ImageCollectionViewController.h"
+#import "Image.h"
 
 @interface ImageCollectionViewController ()
 @property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, copy) NSArray *movies;
+@property (nonatomic, copy) NSMutableArray *movies;
 @end
 
 @implementation ImageCollectionViewController
@@ -85,27 +86,18 @@
 
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        self.movies = jsonObject[@"results"];
+        self.movies = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
         
-        self.image = [[Image alloc]init];
-        self.image.movieID = movies.
-        
-        NSLog(@"%@", self.movies);
+//        NSLog(@"%@", self.movies);
+//        NSString *className = [[_movies class] description];
+//        NSLog(@"%@", className);
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.view reloadData];
+            [self.collectionView reloadData];
         });
     }];
 
     [dataTask resume];
 }
-
-
-
-
-
-
-
-
 
 @end

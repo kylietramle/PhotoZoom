@@ -12,5 +12,5 @@
 @interface ImageCollectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) Image *image;
-
+@property(strong, nonatomic) UICollectionView *collectionView;
 @end

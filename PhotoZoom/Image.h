@@ -12,7 +12,6 @@
 @property(strong, nonatomic) NSString *movieID;
 @property(strong, nonatomic) NSString *imageUrl;
 
-// designated initializer
--(id) initWithID:(NSString *)id
-      imageUrlString:(NSString *)urlString;
+-(instancetype)initWithJSON: (NSDictionary *)jsonDictionary;
++(NSMutableArray *)convertJsonToImageObject:(NSArray *)jsonArray;
 @end

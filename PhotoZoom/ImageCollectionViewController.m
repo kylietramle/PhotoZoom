@@ -33,18 +33,20 @@
 
 }
 
--(void)dataRetrieved {
-    NSLog(@"Image movieID is: %@", self.image.movieID);
-    NSLog(@"Image url is: %@", self.image.imageUrl);
-}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
-    NSString *cellData = [self.images [indexPath.row] movieID];
-    NSLog(@"%@", [cellData class]);
+  
+        NSString *cellMovieID = [self.images [indexPath.row] movieID];
+        [cell.viewButton setTitle:cellMovieID forState:UIControlStateNormal];
     
-    [cell.viewButton setTitle:cellData forState:UIControlStateNormal];
+        // load image asynchronously
+        NSString *cellImageUrl = [self.images [indexPath.row] imageUrl];
+        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: cellImageUrl]];
+        if (data) {
+            cell.thumbnailView.image = [UIImage imageWithData:data];
+        }
 
     return cell;
 }
@@ -92,7 +94,7 @@
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
 
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         self.images = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
 
         dispatch_async(dispatch_get_main_queue(), ^{

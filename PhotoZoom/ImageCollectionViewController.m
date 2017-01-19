@@ -7,6 +7,7 @@
 //
 
 #import "ImageCollectionViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "Image.h"
 #import "ImageCell.h"
 
@@ -38,16 +39,13 @@
     
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
   
-        NSString *cellMovieID = [self.images [indexPath.row] movieID];
-        [cell.viewButton setTitle:cellMovieID forState:UIControlStateNormal];
+    NSString *cellMovieID = [self.images [indexPath.row] movieID];
+    [cell.viewButton setTitle:cellMovieID forState:UIControlStateNormal];
     
-        // load image asynchronously
-        NSString *cellImageUrl = [self.images [indexPath.row] imageUrl];
-        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: cellImageUrl]];
-        if (data) {
-            cell.thumbnailView.image = [UIImage imageWithData:data];
-        }
-
+    // load image asynchronously using SDWebImage
+    NSString *cellImageUrl = [self.images [indexPath.row] imageUrl];
+    [cell.thumbnailView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
+    
     return cell;
 }
 
@@ -62,12 +60,12 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.view.frame.size.width-20, 200);
+    return CGSizeMake(self.view.frame.size.width-20, 170);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(10, 10, 10, 5);
+    return UIEdgeInsetsMake(5, 0, 5, 0);
 }
 
 // create NSURLSession object

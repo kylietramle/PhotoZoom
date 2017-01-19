@@ -17,9 +17,11 @@
 		61220F241E2C1EFF00AD37CA /* ImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */; };
 		61220F251E2C1EFF00AD37CA /* ImageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61220F231E2C1EFF00AD37CA /* ImageCollectionViewController.xib */; };
 		61220F281E2C531A00AD37CA /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F271E2C531A00AD37CA /* Image.m */; };
+		64685D847C2EEF54B5878BFB /* libPods-PhotoZoom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5602C9AB9F9B1BA2422C1F0 /* libPods-PhotoZoom.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		183B2DB282B0A8DF26CFEB86 /* Pods-PhotoZoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoZoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoZoom/Pods-PhotoZoom.debug.xcconfig"; sourceTree = "<group>"; };
 		61220EE51E25AEA500AD37CA /* PhotoZoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoZoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61220EE91E25AEA500AD37CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61220EEB1E25AEA500AD37CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		61220F231E2C1EFF00AD37CA /* ImageCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewController.xib; sourceTree = "<group>"; };
 		61220F261E2C531A00AD37CA /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		61220F271E2C531A00AD37CA /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		9A5EAB54627245E3C6B4595C /* Pods-PhotoZoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoZoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoZoom/Pods-PhotoZoom.release.xcconfig"; sourceTree = "<group>"; };
+		C5602C9AB9F9B1BA2422C1F0 /* libPods-PhotoZoom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoZoom.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64685D847C2EEF54B5878BFB /* libPods-PhotoZoom.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				61220EE71E25AEA500AD37CA /* PhotoZoom */,
 				61220EE61E25AEA500AD37CA /* Products */,
+				C05ABF9D8BF7CE4EADB0CFBF /* Pods */,
+				E113493FF86ACC066FD325F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +102,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C05ABF9D8BF7CE4EADB0CFBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				183B2DB282B0A8DF26CFEB86 /* Pods-PhotoZoom.debug.xcconfig */,
+				9A5EAB54627245E3C6B4595C /* Pods-PhotoZoom.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E113493FF86ACC066FD325F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5602C9AB9F9B1BA2422C1F0 /* libPods-PhotoZoom.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61220EFC1E25AEA500AD37CA /* Build configuration list for PBXNativeTarget "PhotoZoom" */;
 			buildPhases = (
+				E5C3355B1C87577F0B1E4546 /* [CP] Check Pods Manifest.lock */,
 				61220EE11E25AEA500AD37CA /* Sources */,
 				61220EE21E25AEA500AD37CA /* Frameworks */,
 				61220EE31E25AEA500AD37CA /* Resources */,
+				404E04E1EAA5BB6C9DE82A5D /* [CP] Embed Pods Frameworks */,
+				6F22DDA92B220D282E0F2B0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +190,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		404E04E1EAA5BB6C9DE82A5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoZoom/Pods-PhotoZoom-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F22DDA92B220D282E0F2B0A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoZoom/Pods-PhotoZoom-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5C3355B1C87577F0B1E4546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		61220EE11E25AEA500AD37CA /* Sources */ = {
@@ -291,6 +366,7 @@
 		};
 		61220EFD1E25AEA500AD37CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 183B2DB282B0A8DF26CFEB86 /* Pods-PhotoZoom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4M3QJKH5SU;
@@ -303,6 +379,7 @@
 		};
 		61220EFE1E25AEA500AD37CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A5EAB54627245E3C6B4595C /* Pods-PhotoZoom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4M3QJKH5SU;

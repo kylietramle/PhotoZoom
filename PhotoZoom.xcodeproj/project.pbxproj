@@ -15,8 +15,8 @@
 		61220F1A1E298D3200AD37CA /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F181E298D3200AD37CA /* ImageCell.m */; };
 		61220F1B1E298D3200AD37CA /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61220F191E298D3200AD37CA /* ImageCell.xib */; };
 		61220F241E2C1EFF00AD37CA /* ImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */; };
-		61220F251E2C1EFF00AD37CA /* ImageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61220F231E2C1EFF00AD37CA /* ImageCollectionViewController.xib */; };
 		61220F281E2C531A00AD37CA /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F271E2C531A00AD37CA /* Image.m */; };
+		61220F2B1E305BF800AD37CA /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F2A1E305BF800AD37CA /* ImageViewController.m */; };
 		64685D847C2EEF54B5878BFB /* libPods-PhotoZoom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5602C9AB9F9B1BA2422C1F0 /* libPods-PhotoZoom.a */; };
 /* End PBXBuildFile section */
 
@@ -35,9 +35,10 @@
 		61220F191E298D3200AD37CA /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		61220F211E2C1EFF00AD37CA /* ImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewController.h; sourceTree = "<group>"; };
 		61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewController.m; sourceTree = "<group>"; };
-		61220F231E2C1EFF00AD37CA /* ImageCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewController.xib; sourceTree = "<group>"; };
 		61220F261E2C531A00AD37CA /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		61220F271E2C531A00AD37CA /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		61220F291E305BF800AD37CA /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		61220F2A1E305BF800AD37CA /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		9A5EAB54627245E3C6B4595C /* Pods-PhotoZoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoZoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoZoom/Pods-PhotoZoom.release.xcconfig"; sourceTree = "<group>"; };
 		C5602C9AB9F9B1BA2422C1F0 /* libPods-PhotoZoom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoZoom.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,7 +80,6 @@
 				61220EEC1E25AEA500AD37CA /* AppDelegate.m */,
 				61220F211E2C1EFF00AD37CA /* ImageCollectionViewController.h */,
 				61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */,
-				61220F231E2C1EFF00AD37CA /* ImageCollectionViewController.xib */,
 				61220EF11E25AEA500AD37CA /* Main.storyboard */,
 				61220EF41E25AEA500AD37CA /* Assets.xcassets */,
 				61220EF61E25AEA500AD37CA /* LaunchScreen.storyboard */,
@@ -90,6 +90,8 @@
 				61220F191E298D3200AD37CA /* ImageCell.xib */,
 				61220F261E2C531A00AD37CA /* Image.h */,
 				61220F271E2C531A00AD37CA /* Image.m */,
+				61220F291E305BF800AD37CA /* ImageViewController.h */,
+				61220F2A1E305BF800AD37CA /* ImageViewController.m */,
 			);
 			path = PhotoZoom;
 			sourceTree = "<group>";
@@ -184,7 +186,6 @@
 				61220EF81E25AEA500AD37CA /* LaunchScreen.storyboard in Resources */,
 				61220F1B1E298D3200AD37CA /* ImageCell.xib in Resources */,
 				61220EF51E25AEA500AD37CA /* Assets.xcassets in Resources */,
-				61220F251E2C1EFF00AD37CA /* ImageCollectionViewController.xib in Resources */,
 				61220EF31E25AEA500AD37CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61220F2B1E305BF800AD37CA /* ImageViewController.m in Sources */,
 				61220EED1E25AEA500AD37CA /* AppDelegate.m in Sources */,
 				61220F1A1E298D3200AD37CA /* ImageCell.m in Sources */,
 				61220EEA1E25AEA500AD37CA /* main.m in Sources */,
@@ -292,6 +294,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -340,6 +343,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -409,6 +413,7 @@
 				61220EFE1E25AEA500AD37CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

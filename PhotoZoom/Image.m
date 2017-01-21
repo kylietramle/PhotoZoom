@@ -11,6 +11,11 @@
 
 @implementation Image
 
+- (instancetype) init {
+    self = [self initWithJSON:(NSDictionary *)jsonDictionary];
+    return self;
+}
+
 - (instancetype) initWithJSON:(NSDictionary *)jsonDictionary
 {
     self.movieID = [NSString stringWithFormat:@"%@", jsonDictionary[@"id"]];

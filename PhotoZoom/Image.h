@@ -12,6 +12,7 @@
 @property(strong, nonatomic) NSString *movieID;
 @property(strong, nonatomic) NSString *imageUrl;
 
+
 -(instancetype)initWithJSON: (NSDictionary *)jsonDictionary;
 +(NSMutableArray *)convertJsonToImageObject:(NSArray *)jsonArray;
 

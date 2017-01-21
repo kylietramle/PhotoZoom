@@ -8,12 +8,13 @@
 
 #import "ImageCollectionViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "ImageViewController.h"
 #import "Image.h"
 #import "ImageCell.h"
 
 @interface ImageCollectionViewController ()
 @property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, copy) NSMutableArray *images;
+@property (nonatomic, copy) NSArray *images;
 @end
 
 @implementation ImageCollectionViewController
@@ -34,13 +35,14 @@
 
 }
 
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
   
+    // set button text & method when tapped
     NSString *cellMovieID = [self.images [indexPath.row] movieID];
     [cell.viewButton setTitle:cellMovieID forState:UIControlStateNormal];
+    [cell.viewButton addTarget:self action:@selector(viewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     // load image asynchronously using SDWebImage
     NSString *cellImageUrl = [self.images [indexPath.row] imageUrl];
@@ -49,18 +51,13 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.images count];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.view.frame.size.width-20, 170);
+    return CGSizeMake(self.view.frame.size.width, 170);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
@@ -93,7 +90,8 @@
 
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        self.images = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
+        NSMutableArray *tempImagesArray = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
+        self.images = [[NSArray alloc] initWithArray:tempImagesArray];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];
@@ -101,6 +99,17 @@
     }];
 
     [dataTask resume];
+}
+- (IBAction)viewButtonTapped:(UIButton *)sender {
+    ImageViewController *imageVC = [[ImageViewController alloc] init];
+    
+    UICollectionViewCell *cell = (UICollectionViewCell *)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    imageVC.image = self.images[indexPath.row];
+    
+    NSLog(@"%@", imageVC.image);
+    
+    [self.navigationController pushViewController:imageVC animated:YES];
 }
 
 @end

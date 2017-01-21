@@ -6,6 +6,7 @@
 //  Copyright © 2017 Kylie Tram Le. All rights reserved.
 //
 
+#import "AFNetworking.h"
 #import "ImageCollectionViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ImageViewController.h"
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self fetchFeed];
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     
@@ -66,40 +68,67 @@
 }
 
 // create NSURLSession object
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self. navigationItem.title = @"Photos";
-
-        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-        _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
-
-        [self fetchFeed];
-    }
-
-    return self;
-}
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        self. navigationItem.title = @"Photos";
+//
+//        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//        _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+//
+//        [self fetchFeed];
+//    }
+//
+//    return self;
+//}
 
 // create NSURLRequest and asks for list of images
-- (void)fetchFeed
-{
-    NSString *requestString = @"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
-    NSURL *url = [NSURL URLWithString:requestString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+//- (void)fetchFeed
+//{
+//    NSString *requestString = @"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+//    NSURL *url = [NSURL URLWithString:requestString];
+//    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+//
+//    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//        NSMutableArray *tempImagesArray = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
+//        self.images = [[NSArray alloc] initWithArray:tempImagesArray];
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.collectionView reloadData];
+//        });
+//    }];
+//
+//    [dataTask resume];
+//}
 
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSMutableArray *tempImagesArray = [Image convertJsonToImageObject:(NSArray *)jsonObject[@"results"]];
-        self.images = [[NSArray alloc] initWithArray:tempImagesArray];
+- (void)fetchFeed {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
+    NSURL *URL = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+        NSLog(@"Error: %@", error);
+        } else {
+            NSDictionary *resultsJSON = responseObject[@"results"];
+            for (NSDictionary *movieImageDictionary in resultsJSON) {
+                self.image = [[Image alloc] init];
+                self.image.movieID = [NSString stringWithFormat:@"%@", movieImageDictionary[@"id"]];
+
+                NSString *baseUrl = @"http://image.tmdb.org/t/p/w500";
+                NSString *backDropUrl = movieImageDictionary[@"backdrop_path"];
+                self.image.imageUrl = [NSString stringWithFormat:@"%@%@", baseUrl, backDropUrl];
+            }
+        }
     }];
-
+    
     [dataTask resume];
 }
+
 - (IBAction)viewButtonTapped:(UIButton *)sender {
     ImageViewController *imageVC = [[ImageViewController alloc] init];
     

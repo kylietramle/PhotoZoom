@@ -12,33 +12,33 @@
 @implementation Image
 
 - (instancetype) init {
-    self = [self initWithJSON:(NSDictionary *)jsonDictionary];
+    self = [super init];
     return self;
 }
 
-- (instancetype) initWithJSON:(NSDictionary *)jsonDictionary
-{
-    self.movieID = [NSString stringWithFormat:@"%@", jsonDictionary[@"id"]];
-    
-    NSString *baseUrl = @"http://image.tmdb.org/t/p/w500";
-    NSString *backDropUrl = jsonDictionary[@"backdrop_path"];
-    
-    self.imageUrl = [NSString stringWithFormat:@"%@%@", baseUrl, backDropUrl];
-    
-    return self;
-}
+//- (instancetype) initWithJSON:(NSDictionary *)jsonDictionary
+//{
+//    self.movieID = [NSString stringWithFormat:@"%@", jsonDictionary[@"id"]];
+//    
+//    NSString *baseUrl = @"http://image.tmdb.org/t/p/w500";
+//    NSString *backDropUrl = jsonDictionary[@"backdrop_path"];
+//    
+//    self.imageUrl = [NSString stringWithFormat:@"%@%@", baseUrl, backDropUrl];
+//    
+//    return self;
+//}
 
-+ (NSMutableArray *)convertJsonToImageObject:(NSArray *)jsonArray
-{
-    NSMutableArray *images = [[NSMutableArray alloc] init];
-    for (NSDictionary *jsonDictionary in jsonArray)
-    {
-        Image *image = [[Image alloc] initWithJSON:jsonDictionary];
-        
-        [images addObject:image];
-//        NSLog(@"%@", images);
-    }
-    return images;
-}
+//+ (NSMutableArray *)convertJsonToImageObject:(NSArray *)jsonArray
+//{
+//    NSMutableArray *images = [[NSMutableArray alloc] init];
+//    for (NSDictionary *jsonDictionary in jsonArray)
+//    {
+//        Image *image = [[Image alloc] initWithJSON:jsonDictionary];
+//        
+//        [images addObject:image];
+////        NSLog(@"%@", images);
+//    }
+//    return images;
+//}
 
 @end

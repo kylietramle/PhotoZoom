@@ -7,6 +7,7 @@
 //
 
 #import "ImageViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ImageViewController ()
 
@@ -16,15 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.image = [[Image alloc] init];
+    NSLog(@"%@", self.imageDictionary);
     
     self.fullScreenImageView = [[UIImageView alloc] init];
-    self.fullScreenImageView.frame = CGRectMake(20, 100, 280, 20);
+    self.fullScreenImageView.frame = self.view.frame;
     [self.view addSubview:self.fullScreenImageView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.imageUrl = self.image.imageUrl;
+    NSString *cellImageUrl =  self.imageDictionary[@"Image URL"];
+    NSLog(@"%@", cellImageUrl);
+    [self.fullScreenImageView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
 }
 
 @end

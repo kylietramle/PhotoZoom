@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Image.h"
+#import "ImageResults.h"
 
 @interface ImageViewController : UIViewController
-@property (strong, nonatomic) Image *image;
-@property(strong, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) NSDictionary *imageDictionary;
 @property (strong, nonatomic) UIImageView *fullScreenImageView;
 @end

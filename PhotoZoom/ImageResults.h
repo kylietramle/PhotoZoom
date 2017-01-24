@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Image : NSObject
+@interface ImageResults : NSObject
 @property(strong, nonatomic) NSString *movieID;
 @property(strong, nonatomic) NSString *imageUrl;
+@property(strong, nonatomic) NSMutableArray *images;
 
-
--(instancetype)initWithJSON: (NSDictionary *)jsonDictionary;
-+(NSMutableArray *)convertJsonToImageObject:(NSArray *)jsonArray;
+-(id)initWithJSON;
 
 @end

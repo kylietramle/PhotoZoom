@@ -24,15 +24,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.scrollView.contentSize = CGSizeMake(375, 800);
-    self.imageView.frame = CGRectMake(0, 0, 250, 533);
+    self.scrollView.contentSize = CGSizeMake(450, 660);
+    self.imageView.frame = CGRectMake(0, 0, 375, 211);
     
     NSString *cellImageUrl =  self.imageDictionary[@"Image URL"];
-    NSLog(@"%@", cellImageUrl);
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
     
-    NSLog(@"%@", self.imageView);
+    self.scrollView.delegate = self;
+    self.scrollView.minimumZoomScale = 1.0;
+    self.scrollView.maximumZoomScale = 100.0;
 }
+
+- (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
+
 
 
 @end

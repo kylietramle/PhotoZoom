@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ImageResults.h"
 
-@interface ImageViewController : UIViewController
+@interface ImageViewController : UIViewController <UIScrollViewDelegate>
+
 @property (strong, nonatomic) NSDictionary *imageDictionary;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

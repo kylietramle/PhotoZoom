@@ -11,5 +11,7 @@
 
 @interface ImageViewController : UIViewController
 @property (strong, nonatomic) NSDictionary *imageDictionary;
-@property (strong, nonatomic) UIImageView *fullScreenImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end

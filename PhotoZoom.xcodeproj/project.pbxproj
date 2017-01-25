@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610EDA1E1E383B0D00520CD1 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610EDA1D1E383B0D00520CD1 /* ImageViewController.xib */; };
 		61220EEA1E25AEA500AD37CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220EE91E25AEA500AD37CA /* main.m */; };
 		61220EED1E25AEA500AD37CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220EEC1E25AEA500AD37CA /* AppDelegate.m */; };
 		61220EF31E25AEA500AD37CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61220EF11E25AEA500AD37CA /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		183B2DB282B0A8DF26CFEB86 /* Pods-PhotoZoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoZoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoZoom/Pods-PhotoZoom.debug.xcconfig"; sourceTree = "<group>"; };
+		610EDA1D1E383B0D00520CD1 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 		61220EE51E25AEA500AD37CA /* PhotoZoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoZoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61220EE91E25AEA500AD37CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61220EEB1E25AEA500AD37CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				61220F271E2C531A00AD37CA /* ImageResults.m */,
 				61220F291E305BF800AD37CA /* ImageViewController.h */,
 				61220F2A1E305BF800AD37CA /* ImageViewController.m */,
+				610EDA1D1E383B0D00520CD1 /* ImageViewController.xib */,
 			);
 			path = PhotoZoom;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610EDA1E1E383B0D00520CD1 /* ImageViewController.xib in Resources */,
 				61220EF81E25AEA500AD37CA /* LaunchScreen.storyboard in Resources */,
 				61220F1B1E298D3200AD37CA /* ImageCell.xib in Resources */,
 				61220EF51E25AEA500AD37CA /* Assets.xcassets in Resources */,

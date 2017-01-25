@@ -15,19 +15,24 @@
 
 @implementation ImageViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    NSLog(@"%@", self.imageDictionary);
+- (id)init {
+    self = [super initWithNibName:@"ImageViewController" bundle:nil];
     
-    self.fullScreenImageView = [[UIImageView alloc] init];
-    self.fullScreenImageView.frame = self.view.frame;
-    [self.view addSubview:self.fullScreenImageView];
+    return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.scrollView.contentSize = CGSizeMake(375, 800);
+    self.imageView.frame = CGRectMake(0, 0, 250, 533);
+    
     NSString *cellImageUrl =  self.imageDictionary[@"Image URL"];
     NSLog(@"%@", cellImageUrl);
-    [self.fullScreenImageView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
+    
+    NSLog(@"%@", self.imageView);
 }
+
 
 @end

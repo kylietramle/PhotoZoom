@@ -27,7 +27,7 @@
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
     
-    [self.collectionView setBackgroundColor:[UIColor yellowColor]];
+    [self.collectionView setBackgroundColor:[UIColor blackColor]];
 
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -66,7 +66,12 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-     return CGSizeMake(collectionView.bounds.size.width, 250);
+//     return CGSizeMake(collectionView.bounds.size.width, 250);
+    if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationLandscapeLeft || ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationLandscapeRight)) {
+        return CGSizeMake(250, collectionView.bounds.size.width);
+    } else {
+        return CGSizeMake(collectionView.bounds.size.width, collectionView.bounds.size.height/3.5);
+    }
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

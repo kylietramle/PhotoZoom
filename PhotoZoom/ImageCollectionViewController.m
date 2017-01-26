@@ -11,6 +11,8 @@
 #import "ImageViewController.h"
 #import "ImageResults.h"
 #import "ImageCell.h"
+#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @implementation ImageCollectionViewController
 
@@ -25,6 +27,8 @@
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
     
+    [self.collectionView setBackgroundColor:[UIColor yellowColor]];
+
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
 
@@ -61,7 +65,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.view.frame.size.width, 170);
+
+     return CGSizeMake(collectionView.bounds.size.width, 250);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
@@ -79,5 +84,10 @@
     [self.navigationController pushViewController:imageVC animated:YES];
 }
 
+// for when bounds of collection view changes
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+{
+    return YES;
+}
 
 @end

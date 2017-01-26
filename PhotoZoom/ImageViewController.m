@@ -26,6 +26,7 @@
     
     self.scrollView.contentSize = CGSizeMake(450, 660);
     self.imageView.frame = CGRectMake(0, 0, 375, 211);
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     NSString *cellImageUrl =  self.imageDictionary[@"Image URL"];
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];

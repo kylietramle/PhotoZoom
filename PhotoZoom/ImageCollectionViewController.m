@@ -66,12 +66,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-//     return CGSizeMake(collectionView.bounds.size.width, 250);
-    if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationLandscapeLeft || ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationLandscapeRight)) {
-        return CGSizeMake(250, collectionView.bounds.size.width);
-    } else {
-        return CGSizeMake(collectionView.bounds.size.width, collectionView.bounds.size.height/3.5);
-    }
+     return CGSizeMake(collectionView.bounds.size.width, 250);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

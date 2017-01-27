@@ -78,10 +78,9 @@
 		61220EE71E25AEA500AD37CA /* PhotoZoom */ = {
 			isa = PBXGroup;
 			children = (
+				614F9DED1E3AC0EB003C9721 /* Controllers */,
 				61220EEB1E25AEA500AD37CA /* AppDelegate.h */,
 				61220EEC1E25AEA500AD37CA /* AppDelegate.m */,
-				61220F211E2C1EFF00AD37CA /* ImageCollectionViewController.h */,
-				61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */,
 				61220EF11E25AEA500AD37CA /* Main.storyboard */,
 				61220EF41E25AEA500AD37CA /* Assets.xcassets */,
 				61220EF61E25AEA500AD37CA /* LaunchScreen.storyboard */,
@@ -92,8 +91,6 @@
 				61220F191E298D3200AD37CA /* ImageCell.xib */,
 				61220F261E2C531A00AD37CA /* ImageResults.h */,
 				61220F271E2C531A00AD37CA /* ImageResults.m */,
-				61220F291E305BF800AD37CA /* ImageViewController.h */,
-				61220F2A1E305BF800AD37CA /* ImageViewController.m */,
 				610EDA1D1E383B0D00520CD1 /* ImageViewController.xib */,
 			);
 			path = PhotoZoom;
@@ -105,6 +102,17 @@
 				61220EE91E25AEA500AD37CA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		614F9DED1E3AC0EB003C9721 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				61220F211E2C1EFF00AD37CA /* ImageCollectionViewController.h */,
+				61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */,
+				61220F2A1E305BF800AD37CA /* ImageViewController.m */,
+				61220F291E305BF800AD37CA /* ImageViewController.h */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		C05ABF9D8BF7CE4EADB0CFBF /* Pods */ = {

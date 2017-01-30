@@ -11,8 +11,6 @@
 #import "ImageViewController.h"
 #import "ImageResults.h"
 #import "ImageCell.h"
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
 
 @implementation ImageCollectionViewController
 

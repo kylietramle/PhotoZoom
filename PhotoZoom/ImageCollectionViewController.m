@@ -20,6 +20,8 @@
     [super viewDidLoad];
     self.imageResults = [[ImageResults alloc] init];
     
+    self.navigationItem.title = @"PhotoZoom";
+    
     // listen for notification that json finished loading
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"initWithJSONFinishedLoading" object:nil];
     
@@ -65,8 +67,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-     return CGSizeMake(collectionView.bounds.size.width, 250);
+    
+     return CGSizeMake(collectionView.bounds.size.width, collectionView.bounds.size.height/3.5);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

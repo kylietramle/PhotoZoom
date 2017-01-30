@@ -109,8 +109,8 @@
 			children = (
 				61220F211E2C1EFF00AD37CA /* ImageCollectionViewController.h */,
 				61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */,
-				61220F2A1E305BF800AD37CA /* ImageViewController.m */,
 				61220F291E305BF800AD37CA /* ImageViewController.h */,
+				61220F2A1E305BF800AD37CA /* ImageViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,14 +21,27 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcB-Dc-81c">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcB-Dc-81c">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7uO-kh-B6m">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7uO-kh-B6m">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="667" id="4L2-OB-dhV"/>
+                                <constraint firstAttribute="width" constant="375" id="8di-7L-eZ1"/>
+                            </constraints>
                         </imageView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="7uO-kh-B6m" firstAttribute="leading" secondItem="dcB-Dc-81c" secondAttribute="leading" id="2qq-ST-Iw4"/>
+                        <constraint firstItem="7uO-kh-B6m" firstAttribute="top" secondItem="dcB-Dc-81c" secondAttribute="top" id="IIk-iY-dfC"/>
+                        <constraint firstAttribute="bottom" secondItem="7uO-kh-B6m" secondAttribute="bottom" id="LEf-7X-hkT"/>
+                        <constraint firstItem="7uO-kh-B6m" firstAttribute="centerX" secondItem="dcB-Dc-81c" secondAttribute="centerX" id="OkB-Uv-bIv"/>
+                        <constraint firstAttribute="trailing" secondItem="7uO-kh-B6m" secondAttribute="trailing" id="Rbe-EM-EeW"/>
+                        <constraint firstItem="7uO-kh-B6m" firstAttribute="centerY" secondItem="dcB-Dc-81c" secondAttribute="centerY" id="bf7-DO-h5u"/>
+                        <constraint firstAttribute="width" constant="375" id="jsB-tX-p5c"/>
+                        <constraint firstAttribute="height" constant="667" id="nSh-ny-TEJ"/>
+                    </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

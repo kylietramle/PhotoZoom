@@ -27,9 +27,7 @@
     UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:imageCollectionViewController];
     
     self.window.rootViewController = masterNav;
-    
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+        [self.window makeKeyAndVisible];
     return YES;
 }
 

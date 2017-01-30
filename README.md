@@ -1,6 +1,6 @@
 # PhotoZoom
 
-** iOS app - built in Obj-C
+**iOS app** - built in Obj-C
 
 - [x] Retrieves photos from TMDb's movie posters database
 - [x] Displays images using UICollectionView cells

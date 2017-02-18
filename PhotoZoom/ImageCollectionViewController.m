@@ -11,12 +11,14 @@
 #import "ImageViewController.h"
 #import "ImageResults.h"
 #import "ImageCell.h"
+#import "APIResponse.h"
 
 @implementation ImageCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.imageResults = [[ImageResults alloc] init];
+    self.apiResponse = [[APIResponse alloc] init];
     
     self.navigationItem.title = @"PhotoZoom";
     

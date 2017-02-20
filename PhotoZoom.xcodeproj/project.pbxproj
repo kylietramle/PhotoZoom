@@ -16,7 +16,7 @@
 		61220F1A1E298D3200AD37CA /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F181E298D3200AD37CA /* ImageCell.m */; };
 		61220F1B1E298D3200AD37CA /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61220F191E298D3200AD37CA /* ImageCell.xib */; };
 		61220F241E2C1EFF00AD37CA /* ImageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */; };
-		61220F281E2C531A00AD37CA /* ImageResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F271E2C531A00AD37CA /* ImageResults.m */; };
+		61220F281E2C531A00AD37CA /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F271E2C531A00AD37CA /* Image.m */; };
 		61220F2B1E305BF800AD37CA /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61220F2A1E305BF800AD37CA /* ImageViewController.m */; };
 		61F90B321E494AE200715A0B /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F90B311E494AE200715A0B /* APIResponse.m */; };
 		64685D847C2EEF54B5878BFB /* libPods-PhotoZoom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5602C9AB9F9B1BA2422C1F0 /* libPods-PhotoZoom.a */; };
@@ -38,8 +38,8 @@
 		61220F191E298D3200AD37CA /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		61220F211E2C1EFF00AD37CA /* ImageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewController.h; sourceTree = "<group>"; };
 		61220F221E2C1EFF00AD37CA /* ImageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewController.m; sourceTree = "<group>"; };
-		61220F261E2C531A00AD37CA /* ImageResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResults.h; sourceTree = "<group>"; };
-		61220F271E2C531A00AD37CA /* ImageResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResults.m; sourceTree = "<group>"; };
+		61220F261E2C531A00AD37CA /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		61220F271E2C531A00AD37CA /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		61220F291E305BF800AD37CA /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		61220F2A1E305BF800AD37CA /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		61F90B301E494AE200715A0B /* APIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIResponse.h; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 				61220F171E298D3200AD37CA /* ImageCell.h */,
 				61220F181E298D3200AD37CA /* ImageCell.m */,
 				61220F191E298D3200AD37CA /* ImageCell.xib */,
-				61220F261E2C531A00AD37CA /* ImageResults.h */,
-				61220F271E2C531A00AD37CA /* ImageResults.m */,
+				61220F261E2C531A00AD37CA /* Image.h */,
+				61220F271E2C531A00AD37CA /* Image.m */,
 				610EDA1D1E383B0D00520CD1 /* ImageViewController.xib */,
 				61F90B301E494AE200715A0B /* APIResponse.h */,
 				61F90B311E494AE200715A0B /* APIResponse.m */,
@@ -267,7 +267,7 @@
 				61220EED1E25AEA500AD37CA /* AppDelegate.m in Sources */,
 				61220F1A1E298D3200AD37CA /* ImageCell.m in Sources */,
 				61220EEA1E25AEA500AD37CA /* main.m in Sources */,
-				61220F281E2C531A00AD37CA /* ImageResults.m in Sources */,
+				61220F281E2C531A00AD37CA /* Image.m in Sources */,
 				61220F241E2C1EFF00AD37CA /* ImageCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

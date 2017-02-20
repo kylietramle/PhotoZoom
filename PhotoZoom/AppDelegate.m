@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
  
-    //Image Table View Controller instance
+    // Image Table View Controller instance
     ImageCollectionViewController *imageCollectionViewController = [[ImageCollectionViewController alloc] init];
 
     // Navigation bar

@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ImageResults : NSObject
+@interface Image : NSObject
 
 @property(strong, nonatomic) NSString *movieID;
 @property(strong, nonatomic) NSString *imageUrl;
-@property(strong, nonatomic) NSMutableArray *images;
 
 -(id)initWithDictionary:(NSDictionary *)sourceDictionary;
 

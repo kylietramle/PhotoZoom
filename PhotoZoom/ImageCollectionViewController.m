@@ -9,7 +9,7 @@
 #import "ImageCollectionViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ImageViewController.h"
-#import "ImageResults.h"
+#import "Image.h"
 #import "ImageCell.h"
 #import "APIResponse.h"
 
@@ -17,17 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageResults = [[ImageResults alloc] init];
+    
     self.apiResponse = [[APIResponse alloc] init];
     
     self.navigationItem.title = @"PhotoZoom";
     
     // listen for notification that json finished loading
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"initWithJSONFinishedLoading" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"initWithJSONFinishedLoading" object:nil];
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
     
     [self.collectionView setBackgroundColor:[UIColor blackColor]];
 
@@ -49,7 +49,8 @@
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
   
     // set button text & method when tapped
-    NSDictionary *tempDictionary = [self.imageResults.images objectAtIndex:indexPath.row];
+    NSDictionary *tempDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
+    NSLog(@"tempDictionary is %@", tempDictionary);
     NSString *cellMovieID = tempDictionary[@"Movie ID"];
     [cell.viewButton setTitle:cellMovieID forState:UIControlStateNormal];
     [cell.viewButton addTarget:self action:@selector(viewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -62,7 +63,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.imageResults.images count];
+    return [self.apiResponse.images count];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -81,7 +82,7 @@
     
     UICollectionViewCell *cell = (UICollectionViewCell *)[[sender superview] superview];
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-    imageVC.imageDictionary = [self.imageResults.images objectAtIndex:indexPath.row];
+    imageVC.imageDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
     
     [self.navigationController pushViewController:imageVC animated:YES];
 }

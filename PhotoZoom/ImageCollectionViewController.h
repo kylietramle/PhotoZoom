@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ImageResults.h"
+#import "Image.h"
 #import "APIResponse.h"
 
 @interface ImageCollectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
-@property (strong, nonatomic) ImageResults *imageResults;
+@property (strong, nonatomic) NSArray *images;
 @property(strong, nonatomic) UICollectionView *collectionView;
 @property(strong, nonatomic) APIResponse *apiResponse;
 @end

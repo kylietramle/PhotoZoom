@@ -8,7 +8,7 @@
 
 #import "APIResponse.h"
 #import "AFNetworking.h"
-#import "ImageResults.h"
+#import "Image.h"
 
 static NSString *const apiURL = @"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
@@ -35,9 +35,14 @@ static NSString *const apiURL = @"https://api.themoviedb.org/3/movie/now_playing
                 [alertController addAction:actionOk];
                 
             } else {
+                
                 NSDictionary *resultsJSON = responseObject[@"results"];
-                NSLog(@"resultDictionary in if statement %lu", (unsigned long)[resultsJSON count]);
-                ImageResults *imageResult = [[ImageResults alloc] initWithDictionary:resultsJSON];
+                self.images = [[NSMutableArray alloc] initWithCapacity:resultsJSON.count];
+                for (NSDictionary *movieImageDictionary in resultsJSON) {
+                    Image *newImage = [[Image alloc] initWithDictionary:movieImageDictionary];
+                    
+                    [self.images addObject:@{@"Movie ID": newImage.movieID, @"Image Url": newImage.imageUrl}];                }
+                
             }
 
         }];

@@ -7,7 +7,7 @@
 //
 
 #import "ImageCell.h"
-#import "ImageResults.h"
+#import "Image.h"
 
 @implementation ImageCell
 

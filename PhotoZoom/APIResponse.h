@@ -10,4 +10,5 @@
 #import "AFNetworking.h"
 
 @interface APIResponse : NSObject
+@property(strong, nonatomic) NSMutableArray *images;
 @end

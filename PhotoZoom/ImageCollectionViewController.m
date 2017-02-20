@@ -25,24 +25,29 @@
     // listen for notification that json finished loading
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"initWithJSONFinishedLoading" object:nil];
     
+    [self addCollectionViewToMainView];
+
+}
+
+- (void)addCollectionViewToMainView{
+    
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-20) collectionViewLayout:flowLayout];
     
     [self.collectionView setBackgroundColor:[UIColor blackColor]];
-
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-
+    
     [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"customCell"];
     
     [self.view addSubview: self.collectionView];
-
 }
 
-- (void) dataRetrieved {
-    [self.collectionView reloadData];
-}
+//- (void) dataRetrieved {
+//    [self.collectionView reloadData];
+//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     

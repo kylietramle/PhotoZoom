@@ -20,13 +20,26 @@
     
     self.apiResponse = [[APIResponse alloc] init];
     
-    self.navigationItem.title = @"PhotoZoom";
+    // KVO for API call: images array
+    [self.apiResponse addObserver:self forKeyPath:@"images" options:NSKeyValueObservingOptionNew context: nil];
     
-    // listen for notification that json finished loading
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"initWithJSONFinishedLoading" object:nil];
+    self.navigationItem.title = @"PhotoZoom";
     
     [self addCollectionViewToMainView];
 
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    
+    if ([keyPath isEqualToString:@"images"]) {
+        [self.collectionView reloadData];
+        
+        // try/catch: safe unsubscribe for kvo, in case observer is already unregistered
+        @try {
+            [object removeObserver:self forKeyPath:@"images"];
+        }
+        @catch (NSException * __unused exception) {}
+    }
 }
 
 - (void)addCollectionViewToMainView{
@@ -45,23 +58,19 @@
     [self.view addSubview: self.collectionView];
 }
 
-//- (void) dataRetrieved {
-//    [self.collectionView reloadData];
-//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+    ImageCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
   
     // set button text & method when tapped
     NSDictionary *tempDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
-    NSLog(@"tempDictionary is %@", tempDictionary);
     NSString *cellMovieID = tempDictionary[@"Movie ID"];
     [cell.viewButton setTitle:cellMovieID forState:UIControlStateNormal];
     [cell.viewButton addTarget:self action:@selector(viewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     // load image asynchronously using SDWebImage
-    NSString *cellImageUrl =  tempDictionary[@"Image URL"];
+    NSString *cellImageUrl =  tempDictionary[@"Image Url"];
     [cell.thumbnailView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
     
     return cell;

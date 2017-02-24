@@ -41,10 +41,12 @@ static NSString *const apiURL = @"https://api.themoviedb.org/3/movie/now_playing
                 for (NSDictionary *movieImageDictionary in resultsJSON) {
                     Image *newImage = [[Image alloc] initWithDictionary:movieImageDictionary];
                     
-                    [self.images addObject:@{@"Movie ID": newImage.movieID, @"Image Url": newImage.imageUrl}];                }
+                    [self.images addObject:@{@"Movie ID": newImage.movieID, @"Image Url": newImage.imageUrl}];
+                }
+                NSLog(@"%@", self.images);
                 
             }
-
+            
         }];
         
         [dataTask resume];

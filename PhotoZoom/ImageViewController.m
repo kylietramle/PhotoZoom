@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *cellImageUrl =  self.imageDictionary[@"Image URL"];
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
+//    NSString *cellImageUrl =  self.imageDictionary[@"Image URL"];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageUrl]];
     self.imageView.frame = CGRectMake(0,0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;

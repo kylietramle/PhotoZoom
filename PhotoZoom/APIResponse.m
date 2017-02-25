@@ -43,7 +43,7 @@ static NSString *const apiURL = @"https://api.themoviedb.org/3/movie/now_playing
                     
                     [self.images addObject:@{@"Movie ID": newImage.movieID, @"Image Url": newImage.imageUrl}];
                 }
-                NSLog(@"%@", self.images);
+//                NSLog(@"%@", self.images);
                 
             }
             

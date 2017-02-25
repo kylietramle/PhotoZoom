@@ -7,7 +7,6 @@
 //
 
 #import "ImageCollectionViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "ImageViewController.h"
 #import "Image.h"
 #import "ImageCell.h"
@@ -24,7 +23,6 @@
     [self.apiResponse addObserver:self forKeyPath:@"images" options:NSKeyValueObservingOptionNew context: nil];
     
     self.navigationItem.title = @"PhotoZoom";
-    
     [self addCollectionViewToMainView];
 
 }
@@ -53,7 +51,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    [self.collectionView registerClass:[ImageCell class] forCellWithReuseIdentifier:@"customCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ImageCell" bundle:nil] forCellWithReuseIdentifier:@"customCell"];
     
     [self.view addSubview: self.collectionView];
 }
@@ -62,16 +60,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     ImageCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
-  
-    // set button text & method when tapped
-    NSDictionary *tempDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
-    NSString *cellMovieID = tempDictionary[@"Movie ID"];
-    [cell.viewButton setTitle:cellMovieID forState:UIControlStateNormal];
-    [cell.viewButton addTarget:self action:@selector(viewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
-    // load image asynchronously using SDWebImage
-    NSString *cellImageUrl =  tempDictionary[@"Image Url"];
-    [cell.thumbnailView sd_setImageWithURL:[NSURL URLWithString:cellImageUrl]];
+    [cell setDelegate:self]; // imagecollectionvc: imagecell's delegate
     
     return cell;
 }
@@ -91,15 +80,22 @@
     return UIEdgeInsetsMake(5, 0, 5, 0);
 }
 
-- (IBAction)viewButtonTapped:(UIButton *)sender {
+- (void)sendImageUrl:(NSString *)imageUrl {
     ImageViewController *imageVC = [[ImageViewController alloc] init];
+    imageVC.imageUrl = imageUrl;
+    NSLog(@"imagevc's image url that is passed is %@", imageVC.imageUrl);
     
-    UICollectionViewCell *cell = (UICollectionViewCell *)[[sender superview] superview];
-    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-    imageVC.imageDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
-    
-    [self.navigationController pushViewController:imageVC animated:YES];
 }
+
+//- (IBAction)viewButtonTapped:(UIButton *)sender {
+//    ImageViewController *imageVC = [[ImageViewController alloc] init];
+//    
+//    UICollectionViewCell *cell = (UICollectionViewCell *)[[sender superview] superview];
+//    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+//    imageVC.imageDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
+//    
+//    [self.navigationController pushViewController:imageVC animated:YES];
+//}
 
 // for when bounds of collection view changes
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Image.h"
 #import "APIResponse.h"
+#import "ImageCell.h"
 
-@interface ImageCollectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface ImageCollectionViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, ViewButtonDelegate>
 
 @property (strong, nonatomic) NSArray *images;
 @property(strong, nonatomic) UICollectionView *collectionView;

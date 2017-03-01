@@ -11,6 +11,7 @@
 #import "Image.h"
 #import "ImageCell.h"
 #import "APIResponse.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ImageCollectionViewController
 
@@ -34,7 +35,7 @@
         
         // try/catch: safe unsubscribe for kvo, in case observer is already unregistered
         @try {
-            [object removeObserver:self forKeyPath:@"images"];
+            [self.apiResponse removeObserver:self forKeyPath:@"images"];
         }
         @catch (NSException * __unused exception) {}
     }
@@ -57,10 +58,18 @@
 }
 
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (ImageCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     ImageCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
     [cell setDelegate:self]; // imagecollectionvc: imagecell's delegate
+    
+  
+    NSDictionary *tempDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
+    NSString *cellMovieID = tempDictionary[@"Movie ID"];
+    NSString *cellImageUrl =  tempDictionary[@"Image Url"];
+    
+    // call set movie id and image url method in cell's implementation
+    [cell setMovieID:cellMovieID andWithImageUrl:cellImageUrl];
     
     return cell;
 }
@@ -80,22 +89,15 @@
     return UIEdgeInsetsMake(5, 0, 5, 0);
 }
 
-- (void)sendImageUrl:(NSString *)imageUrl {
+- (void)viewButtonTapped:(UIImageView *)thumbnailView {
+    
     ImageViewController *imageVC = [[ImageViewController alloc] init];
-    imageVC.imageUrl = imageUrl;
-    NSLog(@"imagevc's image url that is passed is %@", imageVC.imageUrl);
+    imageVC.image = [thumbnailView image];
+    NSLog(@"imagevc's image that is passed is %@", imageVC.image);
+    
+    [self.navigationController pushViewController:imageVC animated:YES];
     
 }
-
-//- (IBAction)viewButtonTapped:(UIButton *)sender {
-//    ImageViewController *imageVC = [[ImageViewController alloc] init];
-//    
-//    UICollectionViewCell *cell = (UICollectionViewCell *)[[sender superview] superview];
-//    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-//    imageVC.imageDictionary = [self.apiResponse.images objectAtIndex:indexPath.row];
-//    
-//    [self.navigationController pushViewController:imageVC animated:YES];
-//}
 
 // for when bounds of collection view changes
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds

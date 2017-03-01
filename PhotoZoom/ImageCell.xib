@@ -28,6 +28,9 @@
                         <state key="normal" title="Button">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="buttonClicked:" destination="ogz-yw-NrV" eventType="touchUpInside" id="gNO-Zw-DBZ"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jp8-uF-WGe">
                         <rect key="frame" x="0.0" y="0.0" width="276" height="170"/>

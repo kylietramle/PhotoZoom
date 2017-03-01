@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol ViewButtonDelegate <NSObject>
-- (void)sendImageUrl:(NSString *)imageUrl;
+- (void)viewButtonTapped:(UIImageView *)thumbnailView;
 @end
 
 @interface ImageCell : UICollectionViewCell
@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
 @property (weak, nonatomic) IBOutlet UIButton *viewButton;
 @property (weak, nonatomic) id<ViewButtonDelegate>delegate;
+
+-(void) setMovieID:(NSString *)movieID andWithImageUrl: (NSString *)imageUrl;
 
 @end

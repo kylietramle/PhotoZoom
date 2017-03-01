@@ -13,31 +13,25 @@
 
 @implementation ImageCell
 
-- (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    
-    if (self) {
-        
-        // set button text & method when tapped
-        APIResponse *apiResponse = [[APIResponse alloc] init];
-        [self.viewButton setTitle:@"hello" forState:UIControlStateNormal];
-//        for (NSDictionary *eachImage in apiResponse.images) {
-//            
-//        }
-//        [self.viewButton setTitle:image.movieID forState:UIControlStateNormal];
-//        [self.viewButton addTarget:self action:@selector(viewButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        // load image asynchronously using SDWebImage
-//        [self.thumbnailView sd_setImageWithURL:[NSURL URLWithString:image.imageUrl]];
-        
-    }
-    
-    return self;
+- (IBAction)buttonClicked:(id)sender {
+    [self.delegate viewButtonTapped:self.thumbnailView];
     
 }
 
-- (void)viewButtonTapped:(UIButton *)sender {
-    [self.delegate sendImageUrl:self.viewButton.currentTitle];
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // initialize code
+    }
+    return self;
 }
+
+-(void) setMovieID:(NSString *)movieID
+   andWithImageUrl:(NSString *)imageUrl {
+    
+    [self.viewButton setTitle:movieID forState:UIControlStateNormal];
+    [self.thumbnailView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+}
+
 @end
